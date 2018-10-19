@@ -1,0 +1,23 @@
+{
+  "name": "test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "fs": "0.0.1-security",
+    "koa": "^2.5.3",
+    "koa-router": "^7.4.0",
+    "mysql": "^2.16.0",
+    "nodemon": "^1.18.4",
+    "socket.io": "^2.1.1"
+  },
+  "devDependencies": {
+    "koa-route": "^3.2.0",
+    "pm2": "^3.2.2"
+  }
+}

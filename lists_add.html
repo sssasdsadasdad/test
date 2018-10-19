@@ -1,0 +1,303 @@
+<style type="text/css">
+	dl{
+		height: 150px;
+		overflow: auto;
+		border: 1px solid #ccc;
+		position: absolute;
+		width: calc(100% - 30px);
+		z-index: 999900;
+		background: #fff;
+	}
+	dd{
+		border-top: none;
+		padding: 10px 12px;
+		
+	}
+	dd:hover{
+		background: #A48AD4;
+		color: #fff;
+	}
+	.dlSelect{
+		position: relative;
+	}
+</style>
+<div class="wrapper wrapper-content animated fadeInRight" style="height: 100%;">
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="ibox float-e-margins">
+				<div class="ibox-title">
+					<h5>添加资产 </h5>
+				</div>
+				<div class="ibox-content" style="height: 100%;">
+					<form class="form-builder row" id="form" method="post">
+						<div class="form-group col-md-4 col-xs-12 ">
+							<label class="col-xs-12" for="name">编号</label>
+							<div class="col-sm-12">
+								<input class="form-control" type="text" name="code" value="{$data['code']}" placeholder="请输入编码">
+							</div>
+						</div>
+					<div class="form-group col-md-4 col-xs-12 ">
+							<label class="col-xs-12" >名称</label>
+							<div class="col-sm-12">
+
+								<input class="form-control" type="text" name="title" value="{$data['title']}" placeholder="请输入名称">
+
+							</div>
+						</div>
+						<div class="form-group col-md-4 col-xs-12 ">
+							<label class="col-xs-12" for="customer_name">类别</label>
+							<div class="col-sm-12 dlSelect">
+								<input onfocus="sel.show(this)" oninput="sel.inp(this)" onblur="sel.hide(this)" class="form-control" type="text" name="cate" value="{$data['cate']}" placeholder="请输入类别">
+								<dl onclick="sel.choose(this, event)" class="none">
+									<dd>111</dd>
+									<dd>111</dd>
+									<dd>111</dd>
+									<dd>111</dd>
+								</dl>
+							</div>
+						</div>
+
+						<div class="form-group col-md-4 col-xs-12 ">
+							<label class="col-xs-12" >规格</label>
+							<div class="col-sm-12">
+
+								<input class="form-control" type="text" name="spec" value="{$data['spec']}" placeholder="请输入规格">
+
+							</div>
+						</div>
+						<div class="form-group col-md-4 col-xs-12 ">
+							<label class="col-xs-12" >测量范围</label>
+							<div class="col-sm-12">
+								<input class="form-control" type="text" name="random" value="{$data['random']}" placeholder="请输入测量范围">
+							</div>
+						</div>
+						<div class="form-group col-md-4 col-xs-12 ">
+							<label class="col-xs-12" >精确度</label>
+							<div class="col-sm-12">
+								<input class="form-control" type="text" name="exact" value="{$data['exact']}" placeholder="请输入精确度">
+							</div>
+						</div>
+						<div class="form-group col-md-4 col-xs-12 ">
+							<label class="col-xs-12" >制造商</label>
+							<div class="col-sm-12">
+								<input class="form-control" type="text" name="maker" value="{$data['maker']}" placeholder="请输入制造商">
+							</div>
+						</div>
+						<div class="form-group col-md-4 col-xs-12 ">
+							<label class="col-xs-12" >出厂编号</label>
+							<div class="col-sm-12">
+								<input class="form-control" type="text" name="number" value="{$data['number']}" placeholder="请输入出厂编号">
+							</div>
+						</div>
+						<div class="form-group col-md-4 col-xs-12 ">
+							<label class="col-xs-12" >采购人</label>
+							<div class="col-sm-12">
+								<input class="form-control" type="text" name="purchaser" value="{$data['purchaser']}" placeholder="请输入采购人">
+							</div>
+						</div>
+						<div class="form-group  col-md-4 col-xs-12">
+                            <label class="col-xs-12" >质保到期日</label>
+                            <div class="col-sm-12">
+                                <input id="end_time" name="end_time" class="form-control" placeholder="YYYY-MM-DD" onclick="laydate({istime: true, format: 'YYYY-MM-DD'})">
+                            </div>
+                        </div>
+                    	<div class="form-group col-md-4 col-xs-12 ">
+							<label class="col-xs-12" >折旧年限</label>
+							<div class="col-sm-12">
+								<input class="form-control" type="text" name="age_limit" value="{$data['age_limit']}" placeholder="请输入折旧年限">
+							</div>
+						</div>
+						<div class="form-group col-md-4 col-xs-12 ">
+							<label class="col-xs-12" >残值率</label>
+							<div class="col-sm-12">
+								<input class="form-control" type="text" name="remaining" value="{$data['remaining']}" placeholder="请输入残值率">
+							</div>
+						</div>
+						<div class="form-group col-md-4 col-xs-12 ">
+							<label class="col-xs-12" >检定机构</label>
+							<div class="col-sm-12">
+								<input class="form-control" type="text" name="verification" value="{$data['verification']}" placeholder="请输入检定机构">
+							</div>
+						</div>
+						<div class="form-group col-md-4 col-xs-12 ">
+							<label class="col-xs-12" >检定周期</label>
+							<div class="col-sm-12">
+								<input class="form-control" type="text" name="cycle" value="{$data['cycle']}" placeholder="请输入检定周期">
+							</div>
+						</div>
+						<div class="form-group col-md-4 col-xs-12 ">
+							<label class="col-xs-12" >检定编号</label>
+							<div class="col-sm-12">
+								<input class="form-control" type="text" name="verification_number" value="{$data['verification_number']}" placeholder="请输入检定编号">
+							</div>
+						</div>
+						<div class="form-group col-md-4 col-xs-12 ">
+							<label class="col-xs-12" >检定日期</label>
+							<div class="col-sm-12">
+                                <input id="verification_date" name="verification_date" class="form-control" placeholder="YYYY-MM-DD" onclick="laydate({istime: true, format: 'YYYY-MM-DD'})">
+							</div>
+						</div>
+						<div class="form-group col-md-4 col-xs-12 ">
+							<label class="col-xs-12" >检定结果</label>
+							<div class="col-sm-12">
+                                <input name="result" class="form-control" value="{$data['result']}" placeholder="请输入检定结果">
+							</div>
+						</div>
+						<div class="form-group col-md-4 col-xs-12 ">
+							<label class="col-xs-12" >检定到期日</label>
+							<div class="col-sm-12">
+                                <input id="expir" name="expir" class="form-control" placeholder="YYYY-MM-DD" onclick="laydate({istime: true, format: 'YYYY-MM-DD'})">
+							</div>
+						</div>
+						<div class="form-group col-md-4 col-xs-12 ">
+							<label class="col-xs-12" for="customer_name">领用人</label>
+							<div class="col-sm-12">
+								<select class="js-select2 form-control select2-hidden-accessible" name="recipient">
+									<option value="8">1</option>
+									<option value="8">21</option>
+									<option value="8">21</option>
+									<option value="8">12</option>
+								</select>
+							</div>
+						</div>
+						<div class="form-group col-md-4 col-xs-12 ">
+							<label class="col-xs-12" for="customer_name">责任部门</label>
+							<div class="col-sm-12">
+								<select class="js-select2 form-control select2-hidden-accessible" name="duty">
+									<option value="8">1</option>
+									<option value="8">21</option>
+									<option value="8">21</option>
+									<option value="8">12</option>
+								</select>
+							</div>
+						</div>
+						<div class="form-group col-md-4 col-xs-12 ">
+							<label class="col-xs-12" for="customer_name">状态</label>
+							<div class="col-sm-12">
+								<select class="js-select2 form-control select2-hidden-accessible" name="status">
+									<option value="8">1</option>
+								</select>
+							</div>
+						</div>
+						<div class="form-group col-md-12 col-xs-12 ">
+						    <label class="col-xs-12" for="file">附件</label>
+						    <div class="col-sm-12 js-upload-files">
+						    	<div class="webuploader-pick">上传多个文件</div>
+			            </div>
+						</div>
+						<div class="form-group col-md-12 col-xs-12 ">
+						    <label class="col-xs-12" for="note">备注</label>
+						    <div class="col-xs-12">
+						        <textarea class="form-control" id="note" rows="7" name="note" placeholder="请输入备注">{$data['note']}</textarea>
+				            </div>
+						</div>
+					<div class="col-xs-12">
+                          <button class="btn btn-minw btn-primary ajax-post" onclick="add()" target-form="form-builder" type="button">
+                        		提交                                       
+                          </button>
+                           <button class="btn btn-default" type="button" onclick="javascript:history.back(-1);return false;">
+                            	返回 
+                           </button>
+                         </div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	var sel = {
+		show: function(o){
+			$(o).next('dl').show();
+		},
+		hide: function(o){
+			$(o).next('dl').hide();
+		},
+		choose: function(o, event, fn) {
+			if (fn) {
+				var target = $(event.target);
+				fn(target);
+			}
+			$(o).hide();
+		},
+		inp: function(o){
+			
+		}
+	};
+(function(){
+	
+	var strs = '';
+	tree({:json_encode($tree)});
+	
+	function tree (data){
+		for (var i in data) {
+			var level = '';
+			if (data[i]['level'] > 1) {
+			    level = '|';
+			    var arr = [];
+			    arr.length = data[i]['level'];
+				level += arr.join('--');
+			}
+			strs = strs + '<option  value="' + data[i]['id'] + '">' + level + data[i]['title'] + '</option>';
+			if(data[i].children.length != 0){
+				tree(data[i].children);
+			}
+		}
+	}
+	$("select[name='cate']").append(strs);
+
+})()
+</script>
+<script src="__ADMIN_STATIC__/js/plugins/layer/laydate/laydate.js"></script>
+<script type="text/javascript">
+	       laydate({
+            elem: '#end_time', //目标元素。由于laydate.js封装了一个轻量级的选择器引擎，因此elem还允许你传入class、tag但必须按照这种方式 '#id .class'
+            event: 'focus' //响应事件。如果没有传入event，则按照默认的click
+        });
+          laydate({
+            elem: '#verification_date', //目标元素。由于laydate.js封装了一个轻量级的选择器引擎，因此elem还允许你传入class、tag但必须按照这种方式 '#id .class'
+            event: 'focus' //响应事件。如果没有传入event，则按照默认的click
+        });
+           laydate({
+            elem: '#expir', //目标元素。由于laydate.js封装了一个轻量级的选择器引擎，因此elem还允许你传入class、tag但必须按照这种方式 '#id .class'
+            event: 'focus' //响应事件。如果没有传入event，则按照默认的click
+        });
+</script>
+
+<script type="text/javascript">
+	function add(){
+		var seeting = {
+			id: 'form',
+			url: '{:url("lists_add")}',
+			validate: [
+			    ["title",  '标题不能为空'],
+			    ["code",  '编号不能为空'],
+			    ["cate",  '类别不能为空'],
+			    ["spec",  '规格不能为空'],
+			    ["random",  '测量范围不能为空'],
+			    ["exact",  '精确度不能为空'],
+			    ["maker",  '制造商不能为空'],
+			    ["number",  '出厂编号不能为空'],
+			    ["purchaser",  '采购人不能为空'],
+			    ["end_time",  '质保到期日不能为空'],
+			    ["age_limit",  '折旧年限不能为空'],
+			    ["remaining",  '残值率不能为空'],
+			    ["verification",  '检定机构不能为空'],
+			    ["cycle",  '检定周期不能为空'],
+			    ["verification_number",  '检定编号不能为空'],
+			    ["verification_date",  '检定日期不能为空'],
+			    ["result",  '检定结果不能为空'],
+			    ["expir",  '检定日期不能为空'],
+			    ["recipient",  '领用人不能为空'],
+			    ["duty",  '责任部门不能为空'],
+			    ["status",  '状态不能为空'],
+			]
+		}
+		util.ajax(seeting).then(function(res){
+			alert(res.msg);
+			if (res.code == 1) {
+				location.href = '{:url("index")}'
+			}
+		})
+	}
+</script>
